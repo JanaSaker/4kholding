@@ -1,16 +1,16 @@
 import React from "react";
 import heroImage from "../assets/transfer/1.1-03.png";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <section
       id="home"
-      className="relative h-[80vh] w-full"
-    >
-      <div className="absolute top-0 left-0 w-full z-50">
+className="relative h-[80vh] overflow-hidden">
+    
+      {/* <div className="absolute top-0 left-0 z-50">
         <Navbar />
-      </div>
+      </div> */}
 
       <img
         src={heroImage}

@@ -1,8 +1,8 @@
 import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import in2info from "../assets/in2info-logo-white1.png";
-import worldMap from "../assets/";
-import logo4k from '../assets/4klogo.png'
+import worldMap from "../assets/gulfmap.png";
+import logo4k from "../assets/4klogo.png";
 
 /* ================== BRANCH DATA ================== */
 const branches = [
@@ -12,7 +12,7 @@ const branches = [
       "Store 01, Plot 443, Al Wasit Industrial Estate, Barka State - Sultanate of Oman",
     phone: "+968 9924 2594",
     mapLink:
-      "https://www.google.com/maps/place/Four+K+Building+Materials+LLC+(Oman+-+Barka)/@22681279,57.8557128,17z",
+      "https://www.google.com/maps/place/Four+K+Building+Materials+LLC+(Oman+-+Barka)/@23.5681279,57.8557128,17z",
     top: "64%",
     left: "67%",
   },
@@ -91,18 +91,32 @@ const Footer = () => {
       <div className="bg-gradient-to-r from-[#0f1a1c] to-[#1c2a2e] text-white">
 
         {/* MAIN FOOTER */}
-        <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
 
-          {/* COLUMN 1 */}
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold tracking-wide">
-              < img alt="4K Holding Logo"
-              src={logo4k}
-              className="w-20 h-30"/>
-            </h2>
+          {/* COLUMN 1 — BRAND */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <img
+                src={logo4k}
+                alt="4K Building Materials Logo"
+                className="w-12 h-auto"
+              />
+              <div className="leading-tight">
+                <p className="text-sm tracking-widest uppercase text-white">
+                  4K Building
+                </p>
+                <p className="text-xs tracking-wider uppercase text-white/60">
+                  Materials
+                </p>
+              </div>
+            </div>
+
             <p className="text-sm text-white/60 max-w-xs">
-4K Building Materials is in a unique position with a complete and exclusive range of premium high end products for the woodworking and aluminum joineries.
-</p>
+              4K Building Materials is in a unique position with a complete and
+              exclusive range of premium high-end products for the woodworking
+              and aluminum joineries.
+            </p>
+
             <div className="flex gap-4 pt-4">
               <a
                 href="https://www.facebook.com/4kholding"
@@ -124,10 +138,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* COLUMN 2 */}
+          {/* COLUMN 2 — COMPANY */}
           <div>
-            <h3 className="text-lg mb-6">Company</h3>
-            <ul className="space-y-3 text-sm text-white/70">
+            <h3 className="text-lg mb-3 mt-[60px]">Company</h3>
+            <ul className="space-y-1 text-sm text-white/70">
               <li><a href="#home" className="hover:text-white">Home</a></li>
               <li><a href="#about" className="hover:text-white">About Us</a></li>
               <li><a href="#branches" className="hover:text-white">Our Branches</a></li>
@@ -136,10 +150,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* COLUMN 3 */}
+          {/* COLUMN 3 — BRANCHES */}
           <div>
-            <h3 className="text-lg mb-6">Branches</h3>
-            <ul className="space-y-3 text-sm text-white/70">
+            <h3 className="text-lg mb-3 mt-[60px]">Branches</h3>
+            <ul className="space-y-1 text-sm text-white/70">
               {branches.map((b, i) => (
                 <li key={i}>{b.country}</li>
               ))}
@@ -166,21 +180,9 @@ const Footer = () => {
                   className="group absolute"
                   style={{ top: branch.top, left: branch.left }}
                 >
-                  {/* PIN */}
-                  <span
-                    className="block w-[7px] h-[8px] rounded-full bg-yellow-400
-                               -translate-x-1/2 -translate-y-1/2
-                               motion-safe:animate-ping-slow"
-                  />
+                  <span className="block w-[7px] h-[7px] rounded-full bg-yellow-400" />
 
-                  {/* TOOLTIP */}
-                  <div
-                    className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2
-                               w-64 bg-black/90 text-white text-xs
-                               rounded-lg p-3 opacity-0 scale-95
-                               group-hover:opacity-100 group-hover:scale-100
-                               transition-all duration-200 z-50"
-                  >
+                  <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 w-64 bg-black/90 text-white text-xs rounded-lg p-3 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 z-50">
                     <p className="font-semibold mb-1">{branch.country}</p>
                     <p className="text-white/80 mb-1">{branch.address}</p>
                     <p className="text-yellow-400">{branch.phone}</p>
@@ -202,7 +204,6 @@ const Footer = () => {
                 href="https://in2info.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-80 transition"
               >
                 <img src={in2info} className="w-[70px]" alt="In2Info" />
               </a>

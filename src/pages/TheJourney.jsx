@@ -134,6 +134,48 @@ const TheJourney = () => {
 
 </div>
       </div>
+       {/* ================= MOBILE ================= */}
+      <div className="md:hidden">
+        <div className="relative h-[70vh] overflow-hidden">
+          <img
+            src={items[activeIndex].image}
+            alt={items[activeIndex].title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+
+          <div className="relative z-10 h-full flex flex-col justify-end p-6">
+            <div className="flex items-center gap-3">
+              <span className="text-white text-2xl font-light">
+                {items[activeIndex].id}
+              </span>
+              <HiOutlineChevronRight className="text-white text-5xl" />
+            </div>
+
+            <h3 className="text-white text-2xl mt-2">
+              {items[activeIndex].title}
+            </h3>
+
+            <p className="text-white/80 text-sm mt-2">
+              {items[activeIndex].description}
+            </p>
+
+            <div className="flex gap-3 mt-6 flex-wrap">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className={`w-3 h-3 rounded-full transition ${
+                    i === activeIndex
+                      ? "bg-white"
+                      : "bg-white/30"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        </div>
     </section>
   );
 };

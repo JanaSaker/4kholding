@@ -14,10 +14,8 @@ function App() {
   return (
     <>
 
-        <Home>
-                <Navbar/>
-              </Home>
-
+        <Home/>
+        <Navbar/>
         <Partners/>
         <AboutUs/>
         <TheJourney/>

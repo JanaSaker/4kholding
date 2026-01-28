@@ -7,13 +7,20 @@ import aboutVideo from "../assets/4kholdingvideo.mp4";
 
 const AboutUs = () => {
   const [showMore, setShowMore] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+
+  const handlePlay = () => {
+    if (!videoRef.current) return;
+    videoRef.current.play();
+    setIsPlaying(true);
+  };
 
   return (
     <section id="about" className="bg-white relative mt-10">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-20 items-center pb-10">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-20 items-center">
 
-        {/* LEFT — TEXT (1 column) */}
+        {/* LEFT — TEXT */}
         <div className="lg:col-span-1">
           <h3 className="text-2xl font-light leading-snug mb-6">
             From Concept to Completion
@@ -50,11 +57,11 @@ const AboutUs = () => {
           </button>
         </div>
 
-        {/* RIGHT — MEDIA (2 columns, WIDER) */}
-        <div className="lg:col-span-2 grid grid-cols-2 gap-6">
+        {/* RIGHT — MEDIA */}
+        <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* IMAGE */}
-          <div className="w-full h-[280px] overflow-hidden">
+          <div className="w-full h-[260px] sm:h-[280px] overflow-hidden">
             <img
               src={aboutImage}
               alt="4K Holding"
@@ -63,31 +70,34 @@ const AboutUs = () => {
           </div>
 
           {/* VIDEO */}
-          <div className="relative w-full h-[280px] overflow-hidden group">
+          <div className="relative w-full h-[260px] sm:h-[280px] overflow-hidden group">
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
               poster={videoCover}
+              controls={isPlaying}
+              muted
+              playsInline
+              preload="metadata"
+              onEnded={() => setIsPlaying(false)}
             >
               <source src={aboutVideo} type="video/mp4" />
             </video>
 
-            {/* Overlay */}
-            <button
-              onClick={() => {
-                videoRef.current.play();
-                videoRef.current.setAttribute("controls", "true");
-              }}
-              className="absolute inset-0 flex items-center justify-center bg-black/30 transition"
-            >
-              <div className="w-28 h-28 rounded-full border border-white flex items-center justify-center text-white text-xs uppercase tracking-widest transition-all duration-300 group-hover:border-dashed group-hover:scale-105">
-                Play Video
-              </div>
-            </button>
+            {!isPlaying && (
+              <button
+                onClick={handlePlay}
+                className="absolute inset-0 flex items-center justify-center bg-black/40 transition"
+                aria-label="Play video"
+              >
+                <div className="w-28 h-28 rounded-full border border-white flex items-center justify-center text-white text-xs uppercase tracking-widest transition-all duration-300 group-hover:border-dashed group-hover:scale-105">
+                  Play Video
+                </div>
+              </button>
+            )}
           </div>
 
         </div>
-
       </div>
     </section>
   );

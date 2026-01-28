@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed w-full z-50 font-light  ">
+<header className="fixed inset-x-0 top-0 z-50 font-light">
 
       {/* ───────── TOP BAR ───────── */}
       <div className="bg-white border-b border-gray-200">
@@ -62,44 +62,69 @@ const Navbar = () => {
       </div>
 
       {/* ───────── NAVBAR ───────── */}
-      <div className="bg-black/40 backdrop-blur-md border-b border-white/10">
-        <div className="h-[13vh] flex items-center justify-between lg:justify-evenly  gap-[10%] ">
-
+      <div className="bg-black/40 backdrop-blur-md border-b border-white/10 overflow-x-hidden">
+        <div className="h-[13vh] flex items-center justify-between lg:justify-evenly overflow-x-hidden lg:gap-[165px]">
           {/* ───── LOGO (SMOOTH TRANSITION) ───── */}
-          <div className="relative h-[9vh] w-[160px] flex items-center">
+{/* ───── LOGO + TEXT ───── */}
+<div className="relative h-[9vh] flex items-center gap-3">
 
-            {/* Yellow logo (Home) */}
-            <img
-              src={logoyellow}
-              alt="4K Yellow Logo"
-              className={`
-                absolute left-0 top-1/2 -translate-y-1/2
-                h-[8vh]
-                transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-                ${
-                  activeSection === "home"
-                    ? "opacity-100 scale-100 blur-0"
-                    : "opacity-0 scale-95 blur-[1px]"
-                }
-              `}
-            />
+  {/* LOGO WRAPPER */}
+  <div className="relative w-[72px] h-[8vh]">
+    {/* Yellow logo (Home) */}
+    <img
+      src={logoyellow}
+      alt="4K Yellow Logo"
+      className={`
+        absolute inset-0
+        h-full w-auto
+        transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
+        ${
+          activeSection === "home"
+            ? "opacity-100 scale-100 blur-0"
+            : "opacity-0 scale-95 blur-[1px]"
+        }
+      `}
+    />
 
-            {/* Grey logo (Other sections) */}
-            <img
-              src={logogrey}
-              alt="4K Grey Logo"
-              className={`
-                absolute left-0 top-1/2 -translate-y-1/2
-                h-[8vh]
-                transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-                ${
-                  activeSection === "home"
-                    ? "opacity-0 scale-95 blur-[1px]"
-                    : "opacity-100 scale-100 blur-0"
-                }
-              `}
-            />
-          </div>
+    {/* Grey logo (Other sections) */}
+    <img
+      src={logogrey}
+      alt="4K Grey Logo"
+      className={`
+        absolute inset-0
+        h-full w-auto
+        transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
+        ${
+          activeSection === "home"
+            ? "opacity-0 scale-95 blur-[1px]"
+            : "opacity-100 scale-100 blur-0"
+        }
+      `}
+    />
+  </div>
+
+  {/* TEXT NEXT TO LOGO */}
+  <div className="leading-tight">
+    <p
+      className={`
+        text-[16px] tracking-widest uppercase transition-colors duration-500
+        ${
+          activeSection === "home"
+            ? "text-white"
+            : "text-white/80"
+        }
+      `}
+    >
+      4K Building 
+    </p>
+    <p className="text-[11px] tracking-wider uppercase text-white/60">
+      Materials
+    </p>
+  </div>
+
+</div>
+
+
 
           {/* ───── DESKTOP NAV ───── */}
           <nav className="hidden lg:flex items-center gap-6">
