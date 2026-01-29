@@ -107,7 +107,7 @@ const Navbar = () => {
   <div className="leading-tight">
     <p
       className={`
-        text-[20px] transition-colors duration-500 font-extrabold italic
+        lg:text-[20px] transition-colors duration-500 font-extrabold italic text-sm
         ${
           activeSection === "home"
             ? "text-white"
