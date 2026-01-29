@@ -17,7 +17,7 @@ const AboutUs = () => {
   };
 
   return (
-    <section id="about" className="bg-white relative mt-10">
+    <section id="about" className="bg-white relative  mt-10 ">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-20 items-center">
 
         {/* LEFT — TEXT */}

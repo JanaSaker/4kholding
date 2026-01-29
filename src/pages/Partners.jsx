@@ -25,7 +25,7 @@ const images = [
 
 const Partners = () => {
   return (
-    <section className="py-5 bg-white" id="about">
+    <section className="py-5 bg-white scroll-mt-[13vh]" id="about">
       {/* TITLE */}
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <h2 className="text-2xl uppercase text-center pt-14">
@@ -62,18 +62,21 @@ const Partners = () => {
           >
             {images.map((img, index) => (
               <SwiperSlide key={index}>
-                <div
-                  className="
-                    flex items-center justify-center
-                    p-4
-                    border-r border-l border-gray-300
-                  "
-                >
+                <div className="flex items-center justify-center p-4 border-r border-l border-gray-300">
                   <img
                     src={img}
                     alt={`Partner ${index + 1}`}
-                    className="h-24 max-w-[100px] object-contain"
                     draggable={false}
+                    className="
+                      h-24 max-w-[100px] object-contain
+                      grayscale
+                      opacity-60
+                      hover:grayscale-0
+                      hover:opacity-100
+                      transition-all
+                      duration-300
+                      ease-in-out
+                    "
                   />
                 </div>
               </SwiperSlide>

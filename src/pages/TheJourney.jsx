@@ -52,7 +52,7 @@ const TheJourney = () => {
   }, [page, start, activeIndex]);
 
   return (
-    <section id="journey" className="bg-white relative z-20">
+    <section id="journey" className="bg-white relative z-20 scroll-mt-[13vh]">
       {/* TITLE */}
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <h2 className="text-2xl uppercase text-center pt-16">The Journey</h2>

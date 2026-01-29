@@ -5,7 +5,7 @@ const ContactUs = () => {
   return (
     <section
       id="contact"
-      className="relative bg-cover bg-center bg-no-repeat"
+      className="relative bg-cover bg-center bg-no-repeat scroll-mt-[13vh]"
       style={{ backgroundImage: `url(${second})` }}
     >
       {/* OVERLAY */}

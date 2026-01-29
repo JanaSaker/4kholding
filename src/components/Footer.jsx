@@ -102,11 +102,10 @@ const Footer = () => {
                 className="w-12 h-auto"
               />
               <div className="leading-tight">
-                <p className="text-sm tracking-widest uppercase text-white">
-                  4K Building
-                </p>
-                <p className="text-xs tracking-wider uppercase text-white/60">
-                  Materials
+                <p
+                  className={`text-[16px] italic transition-colors duration-500 font-extrabold`}
+                >
+                  4K Building Materials L.L.C
                 </p>
               </div>
             </div>
@@ -140,8 +139,8 @@ const Footer = () => {
 
           {/* COLUMN 2 — COMPANY */}
           <div>
-            <h3 className="text-lg mb-3 mt-[60px]">Company</h3>
-            <ul className="space-y-1 text-sm text-white/70">
+            <h3 className="text-lg mb-3 ">Company</h3>
+            <ul className="space-y-1 mt-9 text-[13px]  text-white/70">
               <li><a href="#home" className="hover:text-white">Home</a></li>
               <li><a href="#about" className="hover:text-white">About Us</a></li>
               <li><a href="#branches" className="hover:text-white">Our Branches</a></li>
@@ -152,8 +151,8 @@ const Footer = () => {
 
           {/* COLUMN 3 — BRANCHES */}
           <div>
-            <h3 className="text-lg mb-3 mt-[60px]">Branches</h3>
-            <ul className="space-y-1 text-sm text-white/70">
+            <h3 className="text-lg mb-3 ">Branches</h3>
+            <ul className="space-y-1 text-[13px] mt-9 text-white/70">
               {branches.map((b, i) => (
                 <li key={i}>{b.country}</li>
               ))}

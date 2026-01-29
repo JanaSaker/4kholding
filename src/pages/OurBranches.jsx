@@ -104,7 +104,7 @@ const Branches = () => {
   const nextRef = useRef(null);
 
   return (
-    <section id="branches" className="bg-[#ffffff] py-[6%] relative">
+    <section id="branches" className="bg-[#ffffff] py-[6%] relative scroll-mt-[13vh]">
 
       {/* TITLE */}
       <div className="max-w-7xl mx-auto pb-[4%]">

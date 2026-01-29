@@ -63,7 +63,7 @@ const Navbar = () => {
 
       {/* ───────── NAVBAR ───────── */}
       <div className="bg-black/40 backdrop-blur-md border-b border-white/10 overflow-x-hidden">
-        <div className="h-[13vh] flex items-center justify-between lg:justify-evenly overflow-x-hidden lg:gap-[165px]">
+        <div className="h-[13vh] flex items-center justify-between lg:justify-evenly overflow-x-hidden">
           {/* ───── LOGO (SMOOTH TRANSITION) ───── */}
 {/* ───── LOGO + TEXT ───── */}
 <div className="relative h-[9vh] flex items-center gap-3">
@@ -107,7 +107,7 @@ const Navbar = () => {
   <div className="leading-tight">
     <p
       className={`
-        text-[16px] tracking-widest uppercase transition-colors duration-500
+        text-[20px] transition-colors duration-500 font-extrabold italic
         ${
           activeSection === "home"
             ? "text-white"
@@ -115,11 +115,9 @@ const Navbar = () => {
         }
       `}
     >
-      4K Building 
+      4K Building Materials L.L.C
     </p>
-    <p className="text-[11px] tracking-wider uppercase text-white/60">
-      Materials
-    </p>
+
   </div>
 
 </div>
@@ -131,8 +129,8 @@ const Navbar = () => {
             {[
               { label: "Home", href: "#home", id: "home" },
               { label: "About Us", href: "#about", id: "about" },
-              { label: "Our Branches", href: "#branches", id: "branches" },
               { label: "The Journey", href: "#journey", id: "journey" },
+              { label: "Our Branches", href: "#branches", id: "branches" },
               { label: "Contact Us", href: "#contact", id: "contact" },
             ].map((item) => (
               <a
