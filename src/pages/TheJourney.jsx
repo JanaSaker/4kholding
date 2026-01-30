@@ -44,7 +44,6 @@ const TheJourney = () => {
   const start = page * ITEMS_PER_PAGE;
   const currentItems = items.slice(start, start + ITEMS_PER_PAGE);
 
-  // ✅ CLAMP activeIndex to current page (CRITICAL FIX)
   useEffect(() => {
     if (activeIndex < start || activeIndex >= start + ITEMS_PER_PAGE) {
       setActiveIndex(start);
@@ -54,9 +53,15 @@ const TheJourney = () => {
   return (
     <section id="journey" className="bg-white relative z-20 scroll-mt-[13vh]">
       {/* TITLE */}
-      <div className="max-w-7xl mx-auto px-6 mb-16">
+      <div className="max-w-7xl mx-auto px-6 mb-5">
         <h2 className="text-2xl uppercase text-center pt-16">The Journey</h2>
         <div className="mt-4 h-px mx-auto bg-gray-300 w-24" />
+                  <p className="mt-4 text-gray-600 text-sm leading-relaxed text-center">
+Founded in 2007, 4K Building Materials began with a clear vision: quality products and reliable partnerships.
+<br/>Through steady growth, innovation, and trust, we expanded our portfolio and strengthened our presence across the market.
+<br/>Today in 2026, 4K stands as a proven name in building materials, built on experience and driven by the future.
+
+          </p>
       </div>
 
       {/* DESKTOP */}
@@ -68,7 +73,7 @@ const TheJourney = () => {
 
             return (
               <button
-                key={`${item.id}-${index}`} // ✅ COMPOSITE KEY
+                key={`${item.id}-${index}`} 
                 onClick={() => setActiveIndex(index)}
                 className={`relative h-full transition-all duration-500 ease-out ${
                   isActive ? "flex-[6]" : "flex-[1.2]"

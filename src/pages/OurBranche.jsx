@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FiPhone } from "react-icons/fi";
 
 import {
   HiOutlineChevronLeft,
@@ -18,7 +17,6 @@ import iconAbuDhabi from "../assets/Maps-ABUDHABI.png";
 import iconQatar from "../assets/Maps-QTR.png";
 import iconKSA from "../assets/Maps-KSA.png";
 import iconBahrain from "../assets/Maps-BAH.png";
-
 
 // BRANCH DATA
 const branches = [
@@ -61,7 +59,7 @@ const branches = [
     country: "Qatar",
     icon: iconQatar,
     address:
-      "4K Qatar w.l.l.\nIndustrial Area, Street 50, Zone 57,\n Building 74, Doha, Qatar",
+      "4K Qatar w.l.l.\nIndustrial Area\nStreet 50, Zone 57,\nBuilding 74\nDoha, Qatar",
     mapLink:
       "https://www.google.com/maps/search/?api=1&query=Four+K+Building+Materials+Qatar",
     phone: "+97444161870",
@@ -106,7 +104,7 @@ const Branches = () => {
   const nextRef = useRef(null);
 
   return (
-    <section id="branches" className="bg-[#ffffff] py-[6%] relative scroll-mt-[10vh]">
+    <section id="branches" className="bg-[#ffffff] py-[6%] relative">
 
       {/* TITLE */}
       <div className="max-w-7xl mx-auto pb-[4%]">
@@ -115,7 +113,7 @@ const Branches = () => {
       </div>
 
       {/* SLIDER */}
-      <div className="max-w-7xl mx-auto relative px-4 h-80">
+      <div className="max-w-7xl mx-auto relative px-4">
 
         {/* ICON-ONLY ARROWS (ONE SET) */}
         <button
@@ -138,7 +136,6 @@ const Branches = () => {
           modules={[Navigation, Autoplay]}
           loop
           grabCursor
-          autoheight={false}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -160,47 +157,36 @@ const Branches = () => {
           }}
         >
           {branches.map((branch, index) => (
-            <SwiperSlide key={index}  >
-              <div className="flex flex-col h-full">
+            <SwiperSlide key={index}>
+              <div className="h-full border-r border-gray-300 last:border-r-0
+               px-2">
 
-                <div className="px-2 flex flex-col">
-                  <img
-                    src={branch.icon}
-                    alt={branch.country}
-                    className="h-28 mb-6 opacity-70 mx-auto"
-                  />
+                <img
+                  src={branch.icon}
+                  alt={branch.country}
+                  className="h-28 mb-6 opacity-70 mx-auto"
+                />
 
-                  <h3 className="text-lg mb-4 text-center font-medium">
-                    {branch.country}
-                  </h3>
+                <h3 className="text-lg mb-4 text-center font-medium">
+                  {branch.country}
+                </h3>
 
-                  <div className="text-[10px] text-gray-600 leading-relaxed text-center px-4 space-y-3">
-                    <a
-                      href={branch.mapLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block whitespace-pre-line hover:text-black hover:underline transition"
-                    >
-                      {branch.address.split("\n").map((line, i) =>
-                        i === 0 ? (
-                          <span key={i} className="uppercase block">
-                            {line}
-                          </span>
-                        ) : (
-                          <span key={i} className="block">
-                            {line}
-                          </span>
-                        )
-                      )}
-                    </a>
-                  </div>
-                </div>
-                <div className="text-[10px] text-gray-600 leading-relaxed text-center px-4 h-full mt-auto">
+                <div className="text-[12px] text-gray-600 leading-relaxed
+                  text-center px-4 space-y-3">
+                  <a
+                    href={branch.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block whitespace-pre-line hover:text-black hover:underline transition"
+                  >
+                    {branch.address}
+                  </a>
+
                   <a
                     href={`tel:${branch.phone}`}
-                    className="flex items-end font-medium text-gray-700 hover:text-black hover:underline w-full h-full transition justify-center space-x-1 pb-14"
+                    className="block font-medium text-gray-700 hover:text-black hover:underline transition"
                   >
-                    <div className="flex items-center"><FiPhone size={10} color="gray" />{branch.phone}</div>
+                    {branch.phone}
                   </a>
                 </div>
 
